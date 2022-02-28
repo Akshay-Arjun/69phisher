@@ -21,11 +21,9 @@ It only demonstrates "how phishing works". <b>You shall not misuse the informati
 - Latest and updated login pages.
 - Mask URL support 
 - Beginners friendly
-- Docker support (checkout `docker-legacy` branch)
-- Multiple tunneling options
-  - Localhost
-  - Ngrok (With or without hotspot)
-  - Cloudflared (Alternative of Ngrok)
+- Tunneling options
+  - Localhost (visit 127.0.0.1:8080)
+  - Cloudflared (default and automated)
 
 
 ### Installation
