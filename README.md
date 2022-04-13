@@ -16,6 +16,8 @@ It only demonstrates "how phishing works". <b>You shall not misuse the informati
 
 ##
 
+
+
 ### Features
 
 - Latest and updated login pages.
@@ -24,6 +26,15 @@ It only demonstrates "how phishing works". <b>You shall not misuse the informati
 - Tunneling options
   - Localhost (visit 127.0.0.1:8080)
   - Cloudflared (default and automated)
+
+### Screenshots 
+#### Menu
+![Screenshot_20220413-100117_Termux](https://user-images.githubusercontent.com/68991993/163101060-4a4aff6d-96f9-43e0-9625-58ab6d84fc01.jpg)
+#### Website and login page selection
+![Screenshot_20220413-101720_Termux](https://user-images.githubusercontent.com/68991993/163102727-b3b1199e-b24d-49ed-a71b-57f0c07f43d4.jpg)
+#### Share the link and grab details
+![Screenshot_20220413-102024_Termux](https://user-images.githubusercontent.com/68991993/163102809-4add5b0e-6225-4009-a399-ff6e4bdc2adf.jpg)
+
 
 
 ### Installation
