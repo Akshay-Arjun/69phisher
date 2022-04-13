@@ -28,12 +28,12 @@ It only demonstrates "how phishing works". <b>You shall not misuse the informati
 
 ### Installation
 
-- Just, Clone this repository -
+##### Just, Clone this repository -
 ```
 $ git clone git://github.com/Akshay-Arjun/69phisher.git
 ```
 
-- Change to cloned directory and run `69phisher.sh` -
+##### Change to cloned directory -
 ```
 $ cd 69phisher
 $ chmod 777 69phisher.sh
