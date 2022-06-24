@@ -1,21 +1,23 @@
-# 69phisher
-Phishing using try.cloudflare tunnel &amp; undetectable by chrome.
-<p align="center">A beginners friendly, Automated phishing tool with 30+ templates.</p>
+<div align="center">
+  <a href="https://github.com/Akshay-Arjun/69phisher">
+    <img src="./logo.png" alt="Logo" >
+  </a>
 
-##
+<h2 align="center">69phisher</h2>
 
-<h3><p align="center">Disclaimer</p></h3>
+  <p><i>A beginners friendly, Automated phishing tool with 30+ templates.</i></p>
+  <p align="center">
+    <a href="https://github.com/Akshay-Arjun/69phisher/issues/new?assignees=&labels=bug&title=Report Bug">Report Bug</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/Akshay-Arjun/69phisher/issues/new?assignees=&labels=&template=feature_request.md&title=">Request Feature</a>
+  </p>
+  <a href="https://github.com/Akshay-Arjun/69phisher/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Akshay-Arjun/69phisher">
+  <a href="https://github.com/Akshay-Arjun/69phisher/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Akshay-Arjun/69phisher"></a>
 
-<i>Any actions and or activities related to <b>69phisher(from zphisher)</b> is solely your responsibility. The misuse of this toolkit can result in <b>criminal charges</b> brought against the persons in question. <b>The contributors will not be held responsible</b> in the event any criminal charges be brought against any individuals misusing this toolkit to break the law.
-
-<b>This toolkit contains materials that can be potentially damaging or dangerous for social media</b>. Refer to the laws in your province/country before accessing, using,or in any other way utilizing this in a wrong way.
-
-<b>This Tool is made for educational purposes only</b>. Do not attempt to violate the law with anything contained here. <b>If this is your intention, then Get the hell out of here</b>!
-
-It only demonstrates "how phishing works". <b>You shall not misuse the information to gain unauthorized access to someones social media</b>. However you may try out this at your own risk.</i>
-
-##
-
+  <a href="https://github.com/Akshay-Arjun/69phisher/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/Akshay-Arjun/69phisher"></a>
+  <a href="https://github.com/Akshay-Arjun/69phisher/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Akshay-Arjun/69phisher"></a>
+  <br/>
+</div>
 
 
 ### Features
@@ -40,12 +42,12 @@ It only demonstrates "how phishing works". <b>You shall not misuse the informati
 ### Installation
 
 ##### Just, Clone this repository -
-```
+```sh
 $ git clone git://github.com/Akshay-Arjun/69phisher.git
 ```
 
 ##### Change to cloned directory -
-```
+```sh
 $ cd 69phisher
 $ chmod 777 69phisher.sh
 $ bash 69phisher.sh
@@ -64,4 +66,17 @@ $ bash 69phisher.sh
 ### Special Thanks :
 
 - [**htr-tech**](https://github.com/htr-tech)
+
+### Disclaimer
+
+<i>Any actions and or activities related to <b>69phisher(from zphisher)</b> is solely your responsibility. The misuse of this toolkit can result in <b>criminal charges</b> brought against the persons in question. <b>The contributors will not be held responsible</b> in the event any criminal charges be brought against any individuals misusing this toolkit to break the law.
+
+<b>This toolkit contains materials that can be potentially damaging or dangerous for social media</b>. Refer to the laws in your province/country before accessing, using,or in any other way utilizing this in a wrong way.
+
+<b>This Tool is made for educational purposes only</b>. Do not attempt to violate the law with anything contained here. <b>If this is your intention, then Get the hell out of here</b>!
+
+It only demonstrates "how phishing works". <b>You shall not misuse the information to gain unauthorized access to someones social media</b>. However you may try out this at your own risk.</i>
+
+##
+
 
