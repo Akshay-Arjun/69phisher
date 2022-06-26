@@ -18,8 +18,8 @@
   <a href="https://github.com/Akshay-Arjun/69phisher/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Akshay-Arjun/69phisher"></a>
   <br/>
 </div>
-
-
+# To do :
+[] Add Browser in the browser mode. Learn more about BITB attack [here](https://www.makeuseof.com/what-is-browser-in-the-browser-attack/) and [here](https://github.com/mrd0x/BITB)
 ### Features
 
 - Latest and updated login pages.
