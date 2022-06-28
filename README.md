@@ -46,7 +46,7 @@ Add Browser in the browser mode. Learn more about BITB attack https://www.makeus
 
 ##### Just, Clone this repository -
 ```sh
-$ git clone git://github.com/Akshay-Arjun/69phisher.git
+$ git clone https://github.com/Akshay-Arjun/69phisher.git
 ```
 
 ##### Change to cloned directory -
