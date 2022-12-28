@@ -96,7 +96,7 @@ banner_small() {
 			/,    /`               \  __  / 
 			\\"--\\                (_/ (_/  		
 		
-		Version : 1.1
+		Version : 1.2
 	EOF
 }
 
