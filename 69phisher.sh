@@ -3,7 +3,7 @@
 
 ##   69phisher 	: 	Automated Phishing Tool
 ##   Author 	: 	Akshay 
-##   Version 	: 	1
+##   Version 	: 	1.2
 ##   Github 	: 	https://github.com/Akshay-Arjun
 ## Modified version of :
 ##   Zphisher 	: 	Automated Phishing Tool
@@ -80,7 +80,7 @@ ${ORANGE}| '_ \  \__, || '_ \ | '_ \ | |/ __|| '_ \  / _ \| '__|
 ${ORANGE}| (_) |   / / | |_) || | | || |\__ \| | | ||  __/| |   	
 ${ORANGE} \___/   /_/  | .__/ |_| |_||_||___/|_| |_| \___||_|   
 ${ORANGE}              | |                                      
-${ORANGE}              |_|   ${RED}Version : 1.0
+${ORANGE}              |_|   ${RED}Version : 1.2
               
 
 ${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by Akshay-Arjun ${WHITE}
@@ -96,7 +96,7 @@ banner_small() {
 			/,    /`               \  __  / 
 			\\"--\\                (_/ (_/  		
 		
-		Version : 1.0
+		Version : 1.1
 	EOF
 }
 
