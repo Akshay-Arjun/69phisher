@@ -1,0 +1,196 @@
+body {
+    background-color: white;
+    color: #222222;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 745px)
+{
+    .PCHide {
+        visibility: hidden;
+    }
+}
+
+#top {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+#logInDivs {
+    display: flex;
+    justify-content: center;
+
+}
+
+#BigDiv {
+    height: 660px;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+#welcome {
+    width: 100%;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#numberStuff {
+    display: flex;
+    flex-direction: column;
+    height: 140px;
+    width: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+    border: 1px solid #b0b0b0;
+    border-radius: 10px;
+    /* padding: 10px; */
+}
+
+#numberInput {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+#passwordInput {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+
+#numberInputInput{
+    width: 100%;
+    height: 70%;
+    font-size: large;
+    border: none;
+    outline: none;
+    padding-left: 1%;
+}
+#passwordInputInput{
+    width: 100%;
+    height: 70%;
+    font-size: large;
+    border: none;
+    outline: none;
+    padding-left: 1%;
+}
+#disclaimerDiv {
+    font-size: small;
+    font-weight: lighter;
+}
+
+#or {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+#or hr {
+    background-color: #b0b0b0;
+    border: none;
+    width: 100%;
+    height: 1px;
+    margin: 10px;
+}
+
+.loginButton {
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #fe4163;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size:  medium;
+}
+.loginButton:hover {
+    cursor: pointer;
+}
+
+.continue {
+    background-color: transparent;
+    color: #222222;
+    border: 1px solid black;
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.continue svg {
+    margin-left: 20px;
+    margin-right: -20px;
+    height: 25px;
+    width: 25px;
+}
+
+#navBottom {
+    background-color: white;
+    color: black;
+    border-top: 0.5px solid #ebebeb;
+    height: 75px;
+    position: fixed;
+    bottom: -75px;
+    width: 100%;
+    transition: bottom 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+#bottomOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100%;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+.optionTray {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55px;
+}
+.optionTray svg {
+    height: 20px;
+}
+
+.iconHighlight {
+    fill: #fe4163;
+}
+
+.optionTrayText {
+    max-width: 60px;
+    font-size: small;
+    margin-top: 5px;
+}
+
+#explore:hover {
+    cursor: pointer;
+}
+#wishlist:hover {
+    cursor: pointer;
+}
+#logIn:hover {
+    cursor: pointer;
+}

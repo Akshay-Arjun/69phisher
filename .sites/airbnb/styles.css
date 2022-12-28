@@ -1,0 +1,706 @@
+body {
+    background-color: white;
+    color: black;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    background-color: black;
+    color: white;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: background-color 0.4s;
+    z-index: 10;
+}
+
+
+
+.lhsMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 0.8;
+}
+
+.bigLogoSvg {
+    height: 60px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    width: 250px;
+}
+.menu button {
+    height: 45px;
+    border-radius: 22.5px;
+    padding: 0 10px 0 10px;
+}
+
+.menuLogin {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ebebeb;
+    position: relative;
+}
+    .menuDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: fixed;
+        top: 75px;
+        right: 30px;
+        height: 200px;
+        width: 200px;
+        z-index: 15;
+        background-color: white;
+        border-radius: 20px;
+        padding: 10px;
+        font-size: small;
+        box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+    }
+        .menuOptions {
+            display: flex;
+            height: 30px;
+            align-items: center;
+            padding-left: 10px;
+            border-radius: 5px;
+        }
+
+.guestsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    top: 185px;
+    right: 45px;
+    height: 300px;
+    width: 300px;
+    z-index: 15;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: small;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+    .guestsOptions {
+        display: flex;
+        height: 50px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        border-radius: 5px;
+        font-size: medium;
+        font-weight: lighter;
+    }
+        .counterDiv {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 70px;
+        }
+            .counterDisplay {
+                margin: 0 5px;
+                font-size: x-large;
+            }
+            .addButton {
+                height: 20px;
+                width: 20px;
+                border-radius: 15px;
+                border: none;
+            }
+            .subButton {
+                height: 20px;
+                width: 20px;
+                border-radius: 15px;
+                border: none;
+            }
+    .guestsOptionsDisclaimer {
+        display: flex;
+        height: 50px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        border-radius: 5px;
+        font-size: small;
+    }
+#becomeAHost {
+    border: none;
+    color: white;
+}
+
+.menuLogin svg {
+    width: 30px;
+}
+
+#blackBox {
+    height: 900px;
+    width: 100%;
+    background-color: black;
+    z-index: 4;
+    position: absolute;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;    
+    width: 100%;   
+    background-color: transparent;
+
+}
+
+.subMain {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 210px;
+    width: 90%;
+    z-index: 5;
+    background-color: transparent;
+}
+
+.subMainElement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 35px;
+}
+
+.fittings {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+#ukraine {    
+    height: 280px;   
+    background-color: #ff385c;    
+}
+    #ukraineContent {
+        height: 60%;
+        width: 60%;
+    }
+#flexibleBook {
+    /* display: flex;
+    flex-direction: column; */
+    justify-content: flex-end;
+}
+    #flexibleBookContent {       
+        padding-bottom: 15px;
+        height: 40%;
+        width: 80%;
+    }
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    color: white;
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+#subMainSlideTitle {
+    display: flex;
+    position: relative;
+    width: 90%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    #slideTitleText {
+        display: flex;
+        font-size: x-large;
+    }
+
+    #slideButtons {
+        display: flex;
+    }
+
+#subMainSlideCard {
+    width: 100%;
+    height: fixed;
+    display: flex;
+
+    margin-bottom: 20px;
+    position: relative;
+}
+
+    .slideCard {
+        height: 300px;
+        width: 250px;
+        background-color: maroon;
+        border-radius: 15px;
+        margin-right: 10px;
+    }
+
+.wrapTitle {
+    display: flex;
+    position: relative;
+    width: 85%;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    font-size: x-large;
+}
+
+.subMainWrapCard {
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+    .wrapCard {
+        width: 45%;
+        /* margin-right: 20px; */
+        margin: 0px 20px 10px 10px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+    }
+        .wrapCardContent {
+            height: 30%;
+            width: 75%;
+            margin-left: 20px;
+            margin-top: 10px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            box-sizing: border-box;
+            /* text-align: center; */
+            color: white;
+            font-size: xx-large;
+            font-weight: 600;
+        }
+            .wrapCardButton {
+                /* margin-left: 30px; */
+                padding: 15px 25px;
+                background-color: white;
+                border-radius: 7px;
+                border: none;
+                font-family: 'Montserrat', sans-serif;
+                font-size: medium;
+            }
+
+.hosting {
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin: 20px 0;
+}
+    .hostingContent {
+        position: absolute;
+        display: flex;
+        font-size: 4rem;
+        color: white;
+        font-weight: 600;
+        flex-direction: column;
+        height: 80%;
+        width: 30%;
+        padding-left: 10%;
+        justify-content: space-evenly;
+    }
+    .hostButton {
+        width: fit-content;
+        font-size: large;
+        background-color: white;
+        border: none;
+        border-radius: 7px;
+        padding: 15px 25px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+.slideButton {
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0 5px;
+    background-color: white;
+    border: 1px solid #ebebeb;
+}
+
+
+.navMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 0.9;
+}
+
+#navBottom {
+    background-color: white;
+    color: black;
+    border-top: 1px #ebebeb;
+    height: 75px;
+    position: fixed;
+    bottom: -75px;
+    width: 100%;
+    z-index: 10;
+    transition: bottom 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#bottomOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100%;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+.optionTray {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55px;
+}
+.optionTray svg {
+    height: 20px;
+}
+
+.iconHighlight {
+    fill: #fe4163;
+}
+
+.optionTrayText {
+    max-width: 60px;
+    font-size: small;
+    margin-top: 5px;
+}
+
+#airbnbLogo img {
+    max-height: 40px;
+    background-color: white;
+}
+
+.searchIcon {
+    width: 16px;
+    margin-right: 5px
+}
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    flex-grow: 1;
+    /* width: fit-content; */
+    border-radius: 20px;
+    border: none;
+    padding: 0;
+}
+.search div{
+    display: flex;
+    align-items: center;
+    height: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+@keyframes example {
+    from {background-color: black;}
+    to {background-color: white;}    
+}
+
+.extendedDiv {
+    position: fixed;
+    top: 70px;
+    height: 80px;
+    width: 100%;
+    z-index: 10;   
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.4s;
+    /* animation-name: example;
+    animation-duration: 0.4s; */
+    /* animation-direction: alternate; */
+}
+
+.extendedOptionBar {
+    
+    position: fixed;
+    top: 50px;
+    height: 140px;
+    width: 90%;
+    z-index: 11;   
+    background-color: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.extendedOptionBarDiv1 {   
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.4s;
+}
+.extendedOptionBarDiv2 {
+    width: 100%;
+    height: 60px;
+    background-color: #f4f4f4;
+    border: 1px solid #ebebeb;
+    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.EOBD1 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    margin: 0 5px 0 5px;
+    
+}
+.EOBD2 {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background-color: transparent;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    margin: 0 5px 0 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+    .EOBD2Input {
+        outline: none;
+        border: none;
+        background-color: #f4f4f4;
+    }
+
+.transparentButton {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+.gradientBG {
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gradientText {
+    display: flex;
+    background: linear-gradient(to right, purple 0%, violet 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    border: none;
+    padding: 5px 8px;
+    font-size: medium;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.buttonShadow {
+    transition: 0.2s all;
+}
+
+footer {
+    display: flex;
+    position: relative;
+    background-color: #f7f7f7;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 90%;
+    margin: 0 5%;
+    font-weight: 100;
+    font-size: small;
+    
+    /* align-items: center; */
+}
+    .footerDiv1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .footerDiv2 {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+
+.search:hover {
+    cursor: pointer;
+}
+.menu button:hover {
+    cursor: pointer;
+}
+#explore:hover {
+    cursor: pointer;
+}
+#wishlist:hover {
+    cursor: pointer;
+}
+#logIn:hover {
+    cursor: pointer;
+}
+.menuOptions:hover {
+    cursor: pointer;
+    background-color: #f4f4f4;
+}
+.EOBD2:hover {
+    cursor: pointer;
+}
+.buttonShadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    /* 0 4px 8px 0 rgba(0, 0, 0, 0.2)  0 6px 20px 0 rgba(0, 0, 0, 0.19)*/
+}
+
+@media (max-width: 1000px)
+{
+    .hostingContent {
+        font-size: 3rem;
+    }
+}
+@media (min-width: 745px)
+{
+    .pcHide {
+        visibility: hidden;
+    }
+    .search {
+        max-width: 300px;
+    }
+}
+@media (max-width: 745px)
+{
+    .phoneHide {
+        visibility: hidden;
+    }
+    .EOBD1 {
+        font-size: x-small;
+    }
+    .EOBD2 {
+        font-size: smaller;
+        height: 50%;
+    }
+    .EOBD2Input {
+        font-size: smaller;
+    }
+
+    .extendedOptionBarDiv2 {
+        height: 120px;
+    }
+    .guestsDiv {
+        top: 200px;
+        right: 45px;
+        height: 250px;
+        width: 200px;
+    }
+    .guestsOptions {
+        height: 35px;
+    }
+        .counterDiv {
+            width: 70px;
+        }
+            .counterDisplay {
+                margin: 0 5px;
+                font-size: large;
+            }
+        .guestsOptionsDisclaimer
+        {
+            font-size: x-small;
+        }
+}
+@media (max-width: 770px)
+{
+    .cardContent {
+        font-size: x-large;
+        font-weight: 500;
+    }
+    .gradientBG {
+        padding: 5px 8px;
+    }
+    .gradientText {
+        font-size: small;
+    }
+    #blackBox {
+        height: 600px;
+    }
+}
+@media (max-width: 800px)
+{
+    .wrapCard {
+        width: 90%;
+    }
+    .hostingContent {
+        font-size: 2rem;
+    }
+    .hostButton {
+        font-size: medium;
+        padding: 10px 15px;
+    }
+}
+@media (max-width: 580px)
+{
+    .flexibleBookContent {
+        height: 20%;
+    }
+    .cardContent {
+        font-size: medium;
+        font-weight: 200;
+    }
+    .gradientBG {
+        padding: 1px 3px;
+    }
+    .gradientText {
+        font-size: small;
+    }
+    .hostButton {
+        font-size: small;
+        padding: 8px 10px;
+    }
+}
