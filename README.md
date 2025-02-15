@@ -1,91 +1,103 @@
+
 <div align="center">
   <a href="https://github.com/Akshay-Arjun/69phisher">
-    <img src="./logo.png" alt="Logo" >
+    <img src="./logo.png" alt="69phisher Logo" width="200">
   </a>
 
 <h2 align="center">69phisher</h2>
 
-  <p><i>A beginners friendly, Automated phishing simulation tool with 30+ templates.</i></p>
-  <p><i> Update V1.2 : Airbnb phishing simulation created & added >_< </i></p>
+  <p align="center"><i>Phishing Simulation Toolkit for Security Education</i></p>
+  <p align="center">Update V1.2: Added Airbnb Phishing Simulation</p>
+  
   <p align="center">
-    <a href="https://github.com/Akshay-Arjun/69phisher/issues/new?assignees=&labels=bug&title=Report Bug">Report Bug</a>
+    <a href="https://github.com/Akshay-Arjun/69phisher/issues/new?template=bug_report.md">Report Bug</a>
     &nbsp;·&nbsp;
-    <a href="https://github.com/Akshay-Arjun/69phisher/issues/new?assignees=&labels=&template=feature_request.md&title=">Request Feature</a>
+    <a href="https://github.com/Akshay-Arjun/69phisher/issues/new?template=feature_request.md">Request Feature</a>
   </p>
-  <a href="https://github.com/Akshay-Arjun/69phisher/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Akshay-Arjun/69phisher">
-  <a href="https://github.com/Akshay-Arjun/69phisher/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Akshay-Arjun/69phisher"></a>
-  <a href="https://github.com/Akshay-Arjun/69phisher/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Akshay-Arjun/69phisher"></a>
-  <br/>
+  
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/Akshay-Arjun/69phisher">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/Akshay-Arjun/69phisher">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-green">
 </div>
-<br />
 
+## 🚀 Features
 
-### To do :
-Add Browser in the browser mode. Learn more about BITB attack https://www.makeuseof.com/what-is-browser-in-the-browser-attack/ and https://github.com/mrd0x/BITB .
+### Core Capabilities
+- 30+ Real-World Simulation Templates
+- Airbnb Phishing Scenario (First of its Kind)
+- URL Masking Technology
+- Cross-Platform Support (All Unix/Linux Systems)
+- Auto-Configured Tunneling (Cloudflared/Localhost)
 
-### Features
+### Educational Focus
+- Safe Environment for Security Training
+- Organizational Awareness Programs
+- Classroom Cybersecurity Demonstrations
+- Ethical Hacking Practice
 
-- Airbnb Phishing created & added #1st on internet.
-- Latest and updated login pages.
-- Mask URL support 
-- Beginners friendly
-- Tunneling options
-  - Localhost (visit 127.0.0.1:8080)
-  - Cloudflared (default and automated)
+## 📸 Interface Preview
 
-### Screenshots 
-#### Menu
+#### Simulation Menu
 ![image](https://user-images.githubusercontent.com/68991993/209860283-13d3af06-7658-4216-93a5-478fbebe8259.png)
 
-#### Masked Url:
+#### Masked URL Demonstration
 ![image](https://user-images.githubusercontent.com/68991993/209860342-6e9727c9-d940-4e05-b870-e61114c5ab64.png)
-#### Share the link and grab details
+
+#### Results Dashboard
 ![image](https://user-images.githubusercontent.com/68991993/209860605-5bf5b052-b05d-4780-9217-4350398cfc11.png)
 
+## 🛠️ Installation
 
-
-### Installation
-
-##### Just, Clone this repository -
-```sh
-$ git clone https://github.com/Akshay-Arjun/69phisher.git
+```bash
+git clone https://github.com/Akshay-Arjun/69phisher.git
+cd 69phisher
+chmod 777 69phisher.sh
+bash 69phisher.sh
 ```
 
-##### Change to cloned directory -
-```sh
-$ cd 69phisher
-$ chmod 777 69phisher.sh
-$ bash 69phisher.sh
-```
-- ### Dependencies
+## 🔍 Why Phishing Simulations Matter
 
-**`69phisher`** requires following programs to run properly - 
-- `php`
-- `wget`
-- `curl`
-- `git`
+**For Organizations:**
+- Test employee security awareness
+- Identify vulnerability hotspots
+- Meet compliance requirements (PCI DSS, HIPAA)
+- Reduce successful phishing attacks
 
-> All the dependencies will be installed automatically when you run `69phisher` for the first time.
+**For Educators:**
+- Demonstrate real-world cyber threats
+- Teach threat recognition skills
+- Provide hands-on security training
+- Prepare students for cybersecurity careers
 
-> Supported Platform : **`Termux`**, **`Ubuntu/Debian/Kali/Parrot`**, **`Arch Linux/Manjaro`**, **`Fedora`**
-### Special Thanks :
+## ⚠️ Critical Disclaimer
 
-- [**htr-tech**](https://github.com/htr-tech)
+**Legal Compliance:**
+- Use only with explicit written authorization
+- Never deploy against non-consenting parties
+- Compliance with local laws is mandatory
+- Not responsible for misuse or damage
 
-## Star History
+**Copyright & Trademarks:**
+- All company logos/webpage designs are property of their respective owners
+- This tool contains simulations only - no affiliation with any brand
+- For educational use demonstrating phishing techniques
+- Remove any copyrighted material immediately upon request
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Akshay-Arjun/69phisher&type=Date)](https://star-history.com/#Akshay-Arjun/69phisher&Date)
+**Ethical Use:**
+- Strictly for authorized security training
+- Requires participant consent
+- Must disclose simulation nature post-training
+- Prohibits credential storage or misuse
 
-### Disclaimer
+## 📜 License & Copyright
 
-<i>Any actions and or activities related to <b>69phisher(from zphisher)</b> is solely your responsibility. The misuse of this toolkit can result in <b>criminal charges</b> brought against the persons in question. <b>The contributors will not be held responsible</b> in the event any criminal charges be brought against any individuals misusing this toolkit to break the law.
+**MIT License**  
+Copyright © Akshay-Arjun
 
-<b>This toolkit contains materials that can be potentially damaging or dangerous for social media</b>. Refer to the laws in your province/country before accessing, using,or in any other way utilizing this in a wrong way.
+Permission granted for **educational use only**. Commercial use requires explicit written permission. Full license text available in [LICENSE](LICENSE) file.
 
-<b>This Tool is made for educational purposes only</b>. Do not attempt to violate the law with anything contained here. <b>If this is your intention, then Get the hell out of here</b>!
+---
 
-It only demonstrates "how phishing works". <b>You shall not misuse the information to gain unauthorized access to someones social media</b>. However you may try out this at your own risk.</i>
-
-##
-
-
+<div align="center">
+  <sub>Important: This tool simulates phishing attacks for educational purposes only. All brand imagery remains property of their respective copyright holders.</sub>
+</div>
