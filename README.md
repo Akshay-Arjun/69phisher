@@ -5,8 +5,8 @@
 
 <h2 align="center">69phisher</h2>
 
-  <p><i>A beginners friendly, Automated phishing tool with 30+ templates.</i></p>
-  <p><i> Update V1.2 : Airbnb phishing created & added with premium design >_< </i></p>
+  <p><i>A beginners friendly, Automated phishing simulation tool with 30+ templates.</i></p>
+  <p><i> Update V1.2 : Airbnb phishing simulation created & added >_< </i></p>
   <p align="center">
     <a href="https://github.com/Akshay-Arjun/69phisher/issues/new?assignees=&labels=bug&title=Report Bug">Report Bug</a>
     &nbsp;·&nbsp;
